@@ -1,9 +1,9 @@
-pipeline {
+pipeline {q
     agent any
     stages {
         stage('Pull Latest Code') {
             steps {
-                sh 'echo "is this running?"'
+                sh 'cd /usr/share/nginx/html"'
                 sh 'sudo git pull origin main'
 
             }
