@@ -4,7 +4,7 @@ pipeline {
         stage('Pull Latest Code') {
             steps {
                 sh 'cd /usr/share/nginx/html'
-                sh 'sudo git pull origin main'
+                sh 'git pull origin main'
 
             }
         }
