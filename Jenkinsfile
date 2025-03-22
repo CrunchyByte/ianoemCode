@@ -1,4 +1,4 @@
-pipeline {q
+pipeline {
     agent any
     stages {
         stage('Pull Latest Code') {
