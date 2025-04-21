@@ -10,6 +10,24 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<p id="counter-value">Loading...</p>
+
+		<script>
+			async function updateCounter() {
+              try {
+                const postRes = await fetch("http://ianoem.me:8081/api/counter", {
+                  method: "POST"
+                });
+                const newCounter = await postRes.json();
+                document.getElementById("counter-value").innerText = `Visitor count: ${newCounter.count}`;
+              } catch (err) {
+                console.error("Failed to update counter:", err);
+                document.getElementById("counter-value").innerText = "Failed to load counter 😢";
+              }
+            }
+
+            window.onload = updateCounter;
+		</script>
 	</head>
 	<body class="is-preload">
 
