@@ -3,10 +3,7 @@ pipeline {
     stages {
         stage('Pull Latest Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/CrunchyByte/ianoemCode.git'
-                //sh 'cd /usr/share/nginx/html'
-                //sh 'git pull origin main'
-
+                git credentialsId: 'github-pat', url: 'https://github.com/CrunchyByte/ianoemCode.git', branch: 'main'
             }
         }
         stage('Deploy to Web Server') {
